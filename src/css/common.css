@@ -29,8 +29,10 @@ img {
   display: flex; 
    flex-direction: column;
  margin-right: 20px;
+ 
 }
 .value {
   font-size: 48;
+
   gap: 10px;
 }

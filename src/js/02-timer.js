@@ -17,7 +17,7 @@ const elements = {
 const dateNow = Date.now();
 let dateEnd = null;
 
-
+let timerId = null;
 
 elements.button.disabled = true;
 
@@ -44,7 +44,7 @@ const calendar = flatpickr(elements.input, options);
 elements.button.addEventListener('click', onClick);
 
 function onClick() {
- setInterval(() => {
+ timerId = setInterval(() => {
       const currentTime = Date.now(); 
       const deltaTime = dateEnd - currentTime ;
       const { days, hours, minutes, seconds } = convertMs(deltaTime);
@@ -53,7 +53,7 @@ function onClick() {
    updateTimer({ days, hours, minutes, seconds });
   }, 1000);
   if (deltaTime = 0) {
-    clearInterval(setInterval());
+    clearInterval(timerId);
   }
 }
 
